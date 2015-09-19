@@ -1,4 +1,9 @@
-# Reproducible Research: Peer Assessment 1
+---
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
+---
 
 This report is created for peer assessment 1 of the Coursera Reproducibe Research course and analyses the number of steps per day. 
 
@@ -32,7 +37,7 @@ stepsperday<- aggregate(activity$steps, by=list(date=activity$date), FUN=sum)
 hist(stepsperday$x, col="red", main="Steps per day", xlab="Steps")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-2-1.png) 
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png) 
 
 Mean and median of the number of steps taken per day:
 
@@ -60,7 +65,7 @@ stepsperinterval <- aggregate(activity$steps, by=list(interval=activity$interval
 plot(stepsperinterval$interval, stepsperinterval$x, type="l", col="blue", xlab="Interval", ylab="Average number of steps", main="Average daily activity pattern")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png) 
 
 The interval with the highest number of steps is:
 
@@ -103,7 +108,7 @@ stepsperday_i<- aggregate(activity_imputed$steps, by=list(date=activity_imputed$
 hist(stepsperday_i$x, col="red", main="Steps per day with NAs replaced by mean for interval/daytype", xlab="Steps")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-8-1.png) 
+![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8-1.png) 
 
 Mean and median of the number of steps taken per day after imputing missing values:
 
@@ -146,4 +151,4 @@ xyplot(data=stepsperinterval_daytype, x ~ interval | daytype, type="l", layout=c
        main="Average activity pattern for weekdays and weekenddays")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-10-1.png) 
+![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10-1.png) 
